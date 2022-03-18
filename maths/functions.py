@@ -1,16 +1,21 @@
+"""
+Math module with essential maths functions
+"""
 import sys
 
 
 def mean(data: list) -> float:
     """
-    Calculates mean for a dataset
+    The mean of a data set is the sum of all of the data divided by the size.
+    The mean is also known as the average.
+
     :param data: list of values
     :return: mean value
     """
-    return sum_values(data) / count(data)
+    return sum_values(data) / count_v(data)
 
 
-def isNaN(num) -> bool:
+def is_nan(num) -> bool:
     """
     Checks whether value is NaN
 
@@ -20,7 +25,7 @@ def isNaN(num) -> bool:
     return num != num
 
 
-def count(data: list) -> float:
+def count_v(data: list) -> float:
     """
     Counts not NaN values in a dataset
 
@@ -29,7 +34,7 @@ def count(data: list) -> float:
     """
     result = 0.
     for datum in data:
-        if not isNaN(datum):
+        if not is_nan(datum):
             result += 1
     return result
 
@@ -43,12 +48,12 @@ def sum_values(data: list) -> float:
     """
     result = 0.
     for datum in data:
-        if not isNaN(datum):
+        if not is_nan(datum):
             result += datum
     return result
 
 
-def min(datalist: list) -> float:
+def min_val(datalist: list) -> float:
     """
     Finds the minimum value for a list of values
 
@@ -63,7 +68,7 @@ def min(datalist: list) -> float:
     return min_value
 
 
-def max(datalist: list) -> float:
+def max_val(datalist: list) -> float:
     """
     Finds the maximum value for a list of values
 
@@ -80,77 +85,148 @@ def max(datalist: list) -> float:
 
 def std(datalist: list) -> float:
     """
-    Returns standart deviation for a sample excluding NaNs
+    Returns standard deviation for a sample excluding NaNs
 
     :param datalist: list of values
-    :return:
+    :return: standard deviation
     """
-    sum_sqr_errors = 0
-    count = 0
     mean_val = mean(datalist)
-    for number in datalist:
-        if not isNaN(number):
-            sum_sqr_errors += (number - mean_val) ** 2
-            count += 1
+    datalist = drop_na(datalist)
+    sum_sqr_errors = sum_values([(number - mean_val) ** 2 for number in datalist])
+    count = count_v(datalist)
     return (sum_sqr_errors / (count - 1)) ** 0.5
 
 
 def drop_na(datalist: list) -> list:
     """
     Drops not number values from a dataset
+
     :param datalist: list of values
     :return: list of not NaN values
     """
-    return [datum for datum in datalist if not isNaN(datum)]
+    return [datum for datum in datalist if not is_nan(datum)]
 
 
-def quartile(percent: int, dataset: list) -> float:
+def percentile(percent: int, dataset: list) -> float:
     """
+    Uses the linear interpolation (as default numpy percentile)
 
-    :param percent:
-    :param dataset:
-    :return:
+    :param percent: required percentile to calculate
+    :param dataset: list of data
+    :return: percentile
     """
     dataset = sorted(drop_na(dataset))
-    count_val = len(dataset) + 1
-    breakpoint = (percent / 100) * count_val
-#     print(breakpoint)
-    if breakpoint.is_integer():
-        return dataset[int(breakpoint) - 1]
-    else:
-        left = int(breakpoint) -1
-        right = int(breakpoint)
-#         print(left)
-#         print(right)
-#         print(dataset[left - 1])
-#         print(dataset[left])
-#         print(dataset[right])
-#         print(dataset[right + 1])
-        return dataset[left] + (dataset[right] - dataset[left]) * percent / 100
+    count_val = len(dataset)
+    break_point = (percent / 100) * (count_val - 1)
+    if int(break_point) == break_point:
+        return dataset[int(break_point)]
+    fraction = break_point - int(break_point)
+    left = int(break_point)
+    right = left + 1
+    return dataset[left] + (dataset[right] - dataset[left]) * fraction
 
 
 def quartile_25(dataset: list) -> float:
     """
-
-    :param dataset:
-    :return:
+    Calculates 25 quartile (1 quantile) for a dataset
+    :param dataset: list of data
+    :return: 1 quantile
     """
-    return quartile(25, dataset)
+    return percentile(25, dataset)
 
 
 def quartile_50(dataset: list) -> float:
     """
-
-    :param dataset:
-    :return:
+    Calculates median for a dataset
+    :param dataset: list of data
+    :return: 2 quantile (median value)
     """
-    return quartile(50, dataset)
+    return percentile(50, dataset)
 
 
 def quartile_75(dataset: list) -> float:
     """
+    Calculates 25 quartile (1 quantile) for a dataset
+    :param dataset: list of data
+    :return: 3 quantile
+    """
+    return percentile(75, dataset)
+
+
+def var(dataset: list) -> float:
+    """
+    Variance measures dispersion of data from the mean.
+    The formula for variance is the sum of squared differences from
+    the mean divided by the size of the data set.
+
+    :param dataset: list of data
+    :return: variance
+    """
+    mean_val = mean(dataset)
+    datalist = drop_na(dataset)
+    sum_sqr_errors = sum_values([(number - mean_val) ** 2 for number in datalist])
+    count = count_v(datalist)
+    return sum_sqr_errors / (count - 1)
+
+
+def sum_of_squares(dataset: list) -> float:
+    """
+    The sum of squares is the sum of the squared differences between
+    data values and the mean.
+
+    :param dataset: list of data
+    :return: sum of squares
+    """
+    mean_val = mean(dataset)
+    list_squares = [(value - mean_val) ** 2 for value in dataset]
+    return sum_values(list_squares)
+
+
+def skewness(dataset: list) -> float:
+    """
+    Skewness[3] describes how far to the left or right a data set distribution
+    is distorted from a symmetrical bell curve.
+    A distribution with a long left tail is left-skewed, or negatively-skewed.
+    A distribution with a long right tail is right-skewed, or positively-skewed.
+
+    :param dataset: list of data
+    :return: skewness coef
+    """
+    dataset = drop_na(dataset)
+    count = count_v(dataset)
+    mean_val = mean(dataset)
+    temp_sum = sum_values([((value - mean_val) / std(dataset)) ** 3 for value in dataset])
+    return count / ((count - 1) * (count - 2)) * temp_sum
+
+
+def kurtosis_42(dataset: list) -> float:
+    """
+    Excess kurtosis describes the height of the tails of a distribution rather than the extremity
+    of the length of the tails.
+    Excess kurtosis means that the distribution has a high frequency of data
+    outliers.
+
+    :param dataset: list of data
+    :return: kurtosis
+    """
+    dataset = drop_na(dataset)
+    count = count_v(dataset)
+    mean_val = mean(dataset)
+    temp_sum = sum_values([((value - mean_val) / std(dataset)) ** 4 for value in dataset])
+    # kurtosis = count * (count + 1) / ((count - 1) * (count - 2) * (count - 3)) * temp_sum
+        # 3 * (count - 1) ** 2 / ((count - 2) * (count - 3))
+    kurtosis = 1 / count * temp_sum - 3
+    return kurtosis
+
+
+def mode_42(dataset: list) -> float:
+    """
+    The mode is the value or values that occur most frequently in the data set.
+    A data set can have more than one mode, and it can also have no mode.
 
     :param dataset:
     :return:
     """
-    return quartile(75, dataset)
+    dataset = drop_na(dataset)
+    dataset = list(dataset)
+    return max(set(dataset), key=dataset.count)
