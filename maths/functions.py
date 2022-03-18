@@ -2,6 +2,7 @@
 Math module with essential maths functions
 """
 import sys
+from collections import Counter
 
 
 def mean(data: list) -> float:
@@ -190,13 +191,13 @@ def skewness(dataset: list) -> float:
     A distribution with a long right tail is right-skewed, or positively-skewed.
 
     :param dataset: list of data
-    :return: skewness coef
+    :return: skewness coef (bias = False)
     """
     dataset = drop_na(dataset)
     count = count_v(dataset)
     mean_val = mean(dataset)
-    temp_sum = sum_values([((value - mean_val) / std(dataset)) ** 3 for value in dataset])
-    return count / ((count - 1) * (count - 2)) * temp_sum
+    temp_sum = sum_values([(value - mean_val) ** 3 for value in dataset])
+    return count / ((count - 1) * (count - 2)) * temp_sum / (std(dataset) ** 3)
 
 
 def kurtosis_42(dataset: list) -> float:
@@ -205,6 +206,7 @@ def kurtosis_42(dataset: list) -> float:
     of the length of the tails.
     Excess kurtosis means that the distribution has a high frequency of data
     outliers.
+    Equivalent to bias=False, Fisher=True in scipy.stats.kurtosis
 
     :param dataset: list of data
     :return: kurtosis
@@ -212,10 +214,10 @@ def kurtosis_42(dataset: list) -> float:
     dataset = drop_na(dataset)
     count = count_v(dataset)
     mean_val = mean(dataset)
-    temp_sum = sum_values([((value - mean_val) / std(dataset)) ** 4 for value in dataset])
-    # kurtosis = count * (count + 1) / ((count - 1) * (count - 2) * (count - 3)) * temp_sum
-        # 3 * (count - 1) ** 2 / ((count - 2) * (count - 3))
-    kurtosis = 1 / count * temp_sum - 3
+    temp_sum = sum_values([(value - mean_val) ** 4 for value in dataset])
+    kurtosis = count * (count + 1) / ((count - 1) * (count - 2) * (count - 3)) * temp_sum / (std(dataset) ** 4) - \
+        3 * (count - 1) ** 2 / ((count - 2) * (count - 3))
+    # kurtosis = 1 / count * temp_sum / (std(dataset) ** 4) - 3
     return kurtosis
 
 
@@ -228,5 +230,5 @@ def mode_42(dataset: list) -> float:
     :return:
     """
     dataset = drop_na(dataset)
-    dataset = list(dataset)
-    return max(set(dataset), key=dataset.count)
+    frequency = Counter(dataset)
+    return frequency.most_common(1)[0][0]

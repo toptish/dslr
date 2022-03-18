@@ -126,7 +126,7 @@ class LogisticRegression:
         return self.weights
 
     # Mini-batch gradient descend method. Each gradient descend step uses b
-    # data(rows), one n_cycle equals one step. Сocmpromise between batch and
+    # data(rows), one n_cycle equals one step. Compromise between batch and
     # sgd. Good for huge datasets
     def mini_batch(self, x_val, f_x_val, debug):
         """
@@ -136,7 +136,7 @@ class LogisticRegression:
         :param debug:
         :return:
         """
-        for x, y, _ in get_mini_batch(x_val, f_x_val, self.b): # pylint: disable=C0103
+        for x, y, _ in get_mini_batch(x_val, f_x_val, self.b):  # pylint: disable=C0103
             if _ > self.n_cycle:
                 break
             gradient = log_deriv(x, y, self.weights)
