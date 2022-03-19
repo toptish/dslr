@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Documentation &mdash; DSLR  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="DSLR Project" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DSLR
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">DSLR Project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-describe">describe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-maths.functions">maths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-histogram">histogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pair_plot">pair plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scatter_plot">scatter plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-logreg_predict">logreg predict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-logreg_train">logreg train</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DSLR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Developer Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/code.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="developer-documentation">
+<h1>Developer Documentation<a class="headerlink" href="#developer-documentation" title="Permalink to this headline"></a></h1>
+<section id="module-describe">
+<span id="describe"></span><h2>describe<a class="headerlink" href="#module-describe" title="Permalink to this headline"></a></h2>
+<p>Describe program that shows key statistic metrics for a dataset</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="describe.describe">
+<span class="sig-prename descclassname"><span class="pre">describe.</span></span><span class="sig-name descname"><span class="pre">describe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/describe.html#describe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#describe.describe" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates statistic metrics and displays them (like pd.describe())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df_data</strong> – pd.dataframe with a data set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="describe.get_dataframe">
+<span class="sig-prename descclassname"><span class="pre">describe.</span></span><span class="sig-name descname"><span class="pre">get_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/describe.html#get_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#describe.get_dataframe" title="Permalink to this definition"></a></dt>
+<dd><p>Reads hogwarts dataset to a dataframe
+:return: dataframe with hogwarts dataset</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="describe.main">
+<span class="sig-prename descclassname"><span class="pre">describe.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/describe.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#describe.main" title="Permalink to this definition"></a></dt>
+<dd><p>Main program function</p>
+</dd></dl>
+
+</section>
+<section id="module-maths.functions">
+<span id="maths"></span><h2>maths<a class="headerlink" href="#module-maths.functions" title="Permalink to this headline"></a></h2>
+<p>Math module with essential maths functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.count_v">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">count_v</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#count_v"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.count_v" title="Permalink to this definition"></a></dt>
+<dd><p>Counts not NaN values in a dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – list of values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float counting not NaN values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.drop_na">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">drop_na</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datalist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/maths/functions.html#drop_na"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.drop_na" title="Permalink to this definition"></a></dt>
+<dd><p>Drops not number values from a dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datalist</strong> – list of values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of not NaN values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.is_nan">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">is_nan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/maths/functions.html#is_nan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.is_nan" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether value is NaN</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – value to check</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.kurtosis_42">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">kurtosis_42</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#kurtosis_42"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.kurtosis_42" title="Permalink to this definition"></a></dt>
+<dd><p>Excess kurtosis describes the height of the tails of a distribution rather than the extremity
+of the length of the tails.
+Excess kurtosis means that the distribution has a high frequency of data
+outliers.
+Equivalent to bias=False, Fisher=True in scipy.stats.kurtosis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> – list of data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>kurtosis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.max_val">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">max_val</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datalist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#max_val"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.max_val" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the maximum value for a list of values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datalist</strong> (<em>list</em>) – list of values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>max value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.mean">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.mean" title="Permalink to this definition"></a></dt>
+<dd><p>The mean of a data set is the sum of all of the data divided by the size.
+The mean is also known as the average.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – list of values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mean value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.min_val">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">min_val</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datalist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#min_val"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.min_val" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the minimum value for a list of values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datalist</strong> (<em>list</em>) – list of values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>min value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.mode_42">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">mode_42</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#mode_42"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.mode_42" title="Permalink to this definition"></a></dt>
+<dd><p>The mode is the value or values that occur most frequently in the data set.
+A data set can have more than one mode, and it can also have no mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.percentile">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#percentile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.percentile" title="Permalink to this definition"></a></dt>
+<dd><p>Uses the linear interpolation (as default numpy percentile)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>percent</strong> – required percentile to calculate</p></li>
+<li><p><strong>dataset</strong> – list of data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>percentile</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.quartile_25">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">quartile_25</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#quartile_25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.quartile_25" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates 25 quartile (1 quantile) for a dataset
+:param dataset: list of data
+:return: 1 quantile</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.quartile_50">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">quartile_50</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#quartile_50"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.quartile_50" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates median for a dataset
+:param dataset: list of data
+:return: 2 quantile (median value)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.quartile_75">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">quartile_75</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#quartile_75"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.quartile_75" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates 25 quartile (1 quantile) for a dataset
+:param dataset: list of data
+:return: 3 quantile</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.skewness">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">skewness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#skewness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.skewness" title="Permalink to this definition"></a></dt>
+<dd><p>Skewness[3] describes how far to the left or right a data set distribution
+is distorted from a symmetrical bell curve.
+A distribution with a long left tail is left-skewed, or negatively-skewed.
+A distribution with a long right tail is right-skewed, or positively-skewed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> – list of data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>skewness coef (bias = False)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.std">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datalist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.std" title="Permalink to this definition"></a></dt>
+<dd><p>Returns standard deviation for a sample excluding NaNs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datalist</strong> – list of values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>standard deviation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.sum_of_squares">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">sum_of_squares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#sum_of_squares"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.sum_of_squares" title="Permalink to this definition"></a></dt>
+<dd><p>The sum of squares is the sum of the squared differences between
+data values and the mean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> – list of data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sum of squares</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.sum_values">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">sum_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#sum_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.sum_values" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the sum of not NaN values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – list of values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sum of values excluding NaN</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.functions.var">
+<span class="sig-prename descclassname"><span class="pre">maths.functions.</span></span><span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/maths/functions.html#var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.functions.var" title="Permalink to this definition"></a></dt>
+<dd><p>Variance measures dispersion of data from the mean.
+The formula for variance is the sum of squared differences from
+the mean divided by the size of the data set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> – list of data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>variance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-maths.logistic_regression"></span><p>Module with logistic regression class and functions</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="maths.logistic_regression.LogisticRegression">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">maths.logistic_regression.</span></span><span class="sig-name descname"><span class="pre">LogisticRegression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'batch'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">18</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#LogisticRegression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.LogisticRegression" title="Permalink to this definition"></a></dt>
+<dd><p>Logistic regression class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="maths.logistic_regression.LogisticRegression.batch">
+<span class="sig-name descname"><span class="pre">batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#LogisticRegression.batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.LogisticRegression.batch" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_val</strong> – </p></li>
+<li><p><strong>f_x_val</strong> – </p></li>
+<li><p><strong>debug</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maths.logistic_regression.LogisticRegression.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val_houses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#LogisticRegression.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.LogisticRegression.fit" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>val_houses</strong> – </p></li>
+<li><p><strong>debug</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maths.logistic_regression.LogisticRegression.loss">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicted_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#LogisticRegression.loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.LogisticRegression.loss" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predicted_values</strong> – </p></li>
+<li><p><strong>expected_values</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maths.logistic_regression.LogisticRegression.mini_batch">
+<span class="sig-name descname"><span class="pre">mini_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#LogisticRegression.mini_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.LogisticRegression.mini_batch" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_val</strong> – </p></li>
+<li><p><strong>f_x_val</strong> – </p></li>
+<li><p><strong>debug</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maths.logistic_regression.LogisticRegression.sgd">
+<span class="sig-name descname"><span class="pre">sgd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#LogisticRegression.sgd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.LogisticRegression.sgd" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_val</strong> – </p></li>
+<li><p><strong>f_x_val</strong> – </p></li>
+<li><p><strong>debug</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.logistic_regression.get_mini_batch">
+<span class="sig-prename descclassname"><span class="pre">maths.logistic_regression.</span></span><span class="sig-name descname"><span class="pre">get_mini_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#get_mini_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.get_mini_batch" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_val</strong> – </p></li>
+<li><p><strong>f_x_val</strong> – </p></li>
+<li><p><strong>b</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.logistic_regression.log_deriv">
+<span class="sig-prename descclassname"><span class="pre">maths.logistic_regression.</span></span><span class="sig-name descname"><span class="pre">log_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#log_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.log_deriv" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_val</strong> – </p></li>
+<li><p><strong>f_x_val</strong> – </p></li>
+<li><p><strong>weights</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.logistic_regression.shuffle">
+<span class="sig-prename descclassname"><span class="pre">maths.logistic_regression.</span></span><span class="sig-name descname"><span class="pre">shuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_x_val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#shuffle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.shuffle" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_val</strong> – </p></li>
+<li><p><strong>f_x_val</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="maths.logistic_regression.sigmoid">
+<span class="sig-prename descclassname"><span class="pre">maths.logistic_regression.</span></span><span class="sig-name descname"><span class="pre">sigmoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/maths/logistic_regression.html#sigmoid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#maths.logistic_regression.sigmoid" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> – </p></li>
+<li><p><strong>x</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-histogram">
+<span id="histogram"></span><h2>histogram<a class="headerlink" href="#module-histogram" title="Permalink to this headline"></a></h2>
+<p>Histogram program that helps to find similar distributions of classes among features</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="histogram.histogram">
+<span class="sig-prename descclassname"><span class="pre">histogram.</span></span><span class="sig-name descname"><span class="pre">histogram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/histogram.html#histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#histogram.histogram" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a histogram plot showing distributions among classes for all features</p>
+</dd></dl>
+
+</section>
+<section id="module-pair_plot">
+<span id="pair-plot"></span><h2>pair plot<a class="headerlink" href="#module-pair_plot" title="Permalink to this headline"></a></h2>
+<p>Piarplot program that shows pair scatter plots for all numeric features of a dataset</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pair_plot.pair_plot">
+<span class="sig-prename descclassname"><span class="pre">pair_plot.</span></span><span class="sig-name descname"><span class="pre">pair_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pair_plot.html#pair_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pair_plot.pair_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a pair scatter plot for all numeric features and saves it to .png file
+:return:</p>
+</dd></dl>
+
+</section>
+<section id="module-scatter_plot">
+<span id="scatter-plot"></span><h2>scatter plot<a class="headerlink" href="#module-scatter_plot" title="Permalink to this headline"></a></h2>
+<p>Scatter plot program that finds most similar features and shows a scatter  plot for them</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="scatter_plot.scatter_plot">
+<span class="sig-prename descclassname"><span class="pre">scatter_plot.</span></span><span class="sig-name descname"><span class="pre">scatter_plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scatter_plot.html#scatter_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scatter_plot.scatter_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Finds most similar features using correlation matrix and draws a scatter plot for them</p>
+</dd></dl>
+
+</section>
+<section id="module-logreg_predict">
+<span id="logreg-predict"></span><h2>logreg predict<a class="headerlink" href="#module-logreg_predict" title="Permalink to this headline"></a></h2>
+<p>Program for predicting hogwarts faculties</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="logreg_predict.main">
+<span class="sig-prename descclassname"><span class="pre">logreg_predict.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/logreg_predict.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logreg_predict.main" title="Permalink to this definition"></a></dt>
+<dd><p>Main program function</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="logreg_predict.parse_args">
+<span class="sig-prename descclassname"><span class="pre">logreg_predict.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">argparse.Namespace</span></span></span><a class="reference internal" href="_modules/logreg_predict.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logreg_predict.parse_args" title="Permalink to this definition"></a></dt>
+<dd><p>Add value to Arguments</p>
+</dd></dl>
+
+</section>
+<section id="module-logreg_train">
+<span id="logreg-train"></span><h2>logreg train<a class="headerlink" href="#module-logreg_train" title="Permalink to this headline"></a></h2>
+<p>Program for training</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="logreg_train.get_data">
+<span class="sig-prename descclassname"><span class="pre">logreg_train.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/logreg_train.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logreg_train.get_data" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="logreg_train.main">
+<span class="sig-prename descclassname"><span class="pre">logreg_train.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/logreg_train.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logreg_train.main" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="logreg_train.minmax_normalization">
+<span class="sig-prename descclassname"><span class="pre">logreg_train.</span></span><span class="sig-name descname"><span class="pre">minmax_normalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/logreg_train.html#minmax_normalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logreg_train.minmax_normalization" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="logreg_train.nan_to_median">
+<span class="sig-prename descclassname"><span class="pre">logreg_train.</span></span><span class="sig-name descname"><span class="pre">nan_to_median</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/logreg_train.html#nan_to_median"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logreg_train.nan_to_median" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="logreg_train.parse_args">
+<span class="sig-prename descclassname"><span class="pre">logreg_train.</span></span><span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">argparse.Namespace</span></span></span><a class="reference internal" href="_modules/logreg_train.html#parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#logreg_train.parse_args" title="Permalink to this definition"></a></dt>
+<dd><p>Add value to Arguments</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="DSLR Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gdorcas &amp; Loram.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
